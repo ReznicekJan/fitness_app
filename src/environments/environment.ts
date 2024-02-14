@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://api.edamam.com',
+  apiKey: '421ad86fc1e706dc4365d5fb75982c73',
+  apiID: '5af12223',
 };
 
 /*

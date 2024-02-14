@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Nutriční analýza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="light">
+  <h2>Najděte nutriční hodnotu vašeho jídla</h2>
+    <p>Popiště jídlo, které chcete analyzovat (kusy, hmotnost nebo pouze obecný popis) a aplikace Vám vypočítá kalorickou hodnotu daného jídla.</p>
+    <h3>Lze použít 2 režimy:</h3>
+      <h4>Základní režim</h4>
+        <p>Výpis pouze základních informací.</p>
+      <h4>Pokročilý režim</h4>
+        <p>Výpis komplexních informací (alergeny, mikronutrienty atd.).</p>
+  <h5>Režim:</h5>
+  <ion-radio-group>
+    <ion-radio value="basic">Základní</ion-radio><br />
+    <ion-radio value="complex">Komplexní</ion-radio><br />
+  </ion-radio-group>
+  <br>
+  <ion-item>
+    <ion-input label="Název:" type="text" [(ngModel)]="nameInput" name="nameInput" labelPlacement="floating" placeholder="Zadejte název jídla, které chcete analyzovat"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Jídlo:" type="text" [(ngModel)]="foodInput" name="foodInput" labelPlacement="floating" placeholder="Zadejte jídlo, které chcete analyzovat"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button fill="outline" expand="block" (click)="loadNutrition()">Analyzovat</ion-button>
+  <div *ngIf="showData">
+    <ion-card *ngIf="nutritionData">
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4"><strong>Položka</strong></ion-col>
+              <ion-col size="4"><strong>Hodnota</strong></ion-col>
+              <ion-col size="4"><strong>% Denní příjem*</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Kalorie:</ion-col>
+              <ion-col size="4">{{ getNutrientDisplay('ENERC_KCAL') }}</ion-col>
+              <ion-col size="4">{{ getDailyDisplay('ENERC_KCAL') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Celkový tuk:</ion-col>
+              <ion-col size="4">{{ getNutrientDisplay('FAT') }}</ion-col>
+              <ion-col size="4">{{ getDailyDisplay('FAT') }}</ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="4">Celkový tuk:</ion-col>
+              <ion-col size="6">Nasycené mastné kyseliny:{{ getNutrientDisplay('FASAT') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('FASAT') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Celkový tuk:</ion-col>
+              <ion-col size="6">Cholesterol: {{ getNutrientDisplay('CHOLE') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('CHOLE') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Celkový tuk:</ion-col>
+              <ion-col size="6">Sodík: {{ getNutrientDisplay('NA') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('NA') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Celkový tuk:</ion-col>
+              <ion-col size="6">Celkové sacharidy: {{ getNutrientDisplay('CHOCDF') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('CHOCDF') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Celkový tuk:</ion-col>
+              <ion-col size="6">Vláknina: {{ getNutrientDisplay('FIBTG') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('FIBTG') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">Celkový tuk:</ion-col>
+              <ion-col size="6">Cukry celkem: {{ getNutrientDisplay('SUGAR') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('SUGAR') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">Bílkoviny: {{ getNutrientDisplay('PROCNT') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('PROCNT') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">Vitamin D: {{ getNutrientDisplay('VITD') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('VITD') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">Vápník: {{ getNutrientDisplay('CA') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('CA') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">Železo: {{ getNutrientDisplay('FE') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('FE') }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">Draslík: {{ getNutrientDisplay('K') }}</ion-col>
+              <ion-col size="6">{{ getDailyDisplay('K') }}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+  </div>
+</ion-content>

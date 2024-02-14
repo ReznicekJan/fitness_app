@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Výsledek nutriční analýzy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding" color="light">
+    <ion-card *ngIf="nutritionData">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4"><strong>Položka</strong></ion-col>
+          <ion-col size="4"><strong>Hodnota</strong></ion-col>
+          <ion-col size="4"><strong>% Denní příjem*</strong></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Kalorie:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('ENERC_KCAL') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('ENERC_KCAL') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Voda:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('WATER') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('WATER') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="center-text"><strong>Makronutrienty</strong></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Bílkoviny:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('PROCNT') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('PROCNT') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Sacharidy:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('CHOCDF') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('CHOCDF') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Z toho cukry: </ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('SUGAR') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('SUGAR') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Vláknina:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('FIBTG') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('FIBTG') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Tuky:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('FAT') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('FAT') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12"><strong>Z toho:</strong></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Nasycené mastné kyseliny:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('FASAT') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('FASAT') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Polynenasycené mastné kyseliny:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('FAPU') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('FAPU') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Mononenasycené mastné kyseliny:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('FAMS') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('FAMS') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Cholesterol: </ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('CHOLE') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('CHOLE') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="center-text"><strong>Vitamíny</strong></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Vitamín C:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('VITC') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('VITC') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Vitamín D:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('VITD') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('VITD') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Vitamín A:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('VITA_RAE') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('VITA_RAE') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Vitamín E:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('TOCPHA') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('TOCPHA') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Vitamín K:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('VITK1') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('VITK1') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="center-text"><strong>Minerály</strong></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Hořčík:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('MG') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('MG') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Sodík:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('NA') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('NA') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Vápník:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('CA') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('CA') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Železo:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('FE') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('FE') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Draslík:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('K') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('K') }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">Zinek:</ion-col>
+          <ion-col size="4">{{ getNutrientDisplay('ZN') }}</ion-col>
+          <ion-col size="4">{{ getDailyDisplay('ZN') }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  </ion-content>

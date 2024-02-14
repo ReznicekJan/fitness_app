@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Nutriční analýza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="light">
+  <h1 class="ion-text-center">Najděte nutriční hodnotu vašeho jídla</h1>
+  <h3>Popiště jídlo, které chcete analyzovat (kusy, hmotnost nebo pouze obecný popis) a aplikace Vám vypočítá kalorickou hodnotu daného jídla.</h3>
+  <h6>Upozornění!: jednotlivé potraviny (v anglickém jazyce oddělujte čárkou (',') -> např. '100g rice, 100 g chicken, 10 ml oil, 200 vegetable'</h6>
+  <br>
+  <ion-item>
+    <ion-input label="Název:" type="text" [(ngModel)]="nameInput" name="nameInput" labelPlacement="floating" placeholder="Zadejte název jídla, které chcete analyzovat"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Jídlo:" type="text" [(ngModel)]="foodInput" name="foodInput" labelPlacement="floating" placeholder="Zadejte jídlo, které chcete analyzovat"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button fill="outline" expand="block" (click)="loadNutrition()">Analyzovat</ion-button>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</ion-content>
